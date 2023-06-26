@@ -1,5 +1,10 @@
 'use client';
+import { Metadata } from 'next';
 import { useState } from 'react';
+
+export const metadata: Metadata = {
+  title: "Autorization",
+}
 
 export default function Form() {
   const [username, setUsername] = useState('');
@@ -23,10 +28,9 @@ export default function Form() {
       });
 
       if (response.ok) {
-        // Получение cookies из ответа
         const cookies = document.cookie;
         console.log('Cookies:', cookies);
-        // Другая логика после успешного входа
+        location.assign('/app/parsing')
       } else {
         alert('Login failed. Please try again.');
       }
@@ -37,26 +41,29 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+    <>
+      <h1>Penguin Code</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </>
   );
 }

@@ -126,8 +126,9 @@ header {
 main.container {
   margin: 0vh 10vh;
 }
-footer[className="container"] {
+footer.container {
   display: flex;
+  align-items: end;
 }
 h1 {
   font-family:'Tahoma', Geneva, Verdana, sans-serif;

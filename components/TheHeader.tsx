@@ -3,9 +3,8 @@ import Link from "next/link"
 const TheHeader = () => {
     return (
         <header>
-            <Link href="/">Home</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/about">About</Link>
+            <Link href="/parsing">Parse URL</Link>
+            <Link href="/history">History</Link>
         </header>
     )
 }
